@@ -15,8 +15,8 @@ class Program
         Console.WriteLine("So nho nhat trong day so thuc: " + FindMin(doubles));
 
         string[] strings = { "apple", "banana", "cherry", "date" };
-        Console.WriteLine("Chuoi dai nhat trong day chuoi: " + FindMaxLength(strings));
-        Console.WriteLine("Chuoi ngan nhat trong day chuoi: " + FindMinLength(strings));
+        Console.WriteLine("Chuoi dai nhat trong day chuoi: " + FindMax(strings));
+        Console.WriteLine("Chuoi ngan nhat trong day chuoi: " + FindMin(strings));
     }
 
     static T FindMax<T>(IEnumerable<T> collection) where T : IComparable<T>
@@ -33,24 +33,6 @@ class Program
         if (collection.Any())
         {
             return collection.Min();
-        }
-        throw new InvalidOperationException("Day rong");
-    }
-
-    static string FindMaxLength(IEnumerable<string> strings)
-    {
-        if (strings.Any())
-        {
-            return strings.OrderByDescending(s => s.Length).First();
-        }
-        throw new InvalidOperationException("Day rong");
-    }
-
-    static string FindMinLength(IEnumerable<string> strings)
-    {
-        if (strings.Any())
-        {
-            return strings.OrderBy(s => s.Length).First();
         }
         throw new InvalidOperationException("Day rong");
     }
