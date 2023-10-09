@@ -11,9 +11,10 @@ class Thermometer
         get { return temperature; }
         set
         {
-            if (value != temperature)
+            double roundedValue = Math.Round(value, 1); // Làm tròn giá trị nhiệt độ đến số thập phân thứ nhất
+            if (roundedValue != temperature)
             {
-                temperature = value;
+                temperature = roundedValue;
                 OnTemperatureChanged();
             }
         }
