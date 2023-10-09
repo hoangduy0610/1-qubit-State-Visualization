@@ -106,10 +106,10 @@
                 {
                     Console.WriteLine($"Tao hinh thu {i}:");
 
-                    Console.Write("Loai hinh (1: Hinh chu nhat, 2: Hinh tron, 3: Hinh tam giac, 4: Hinh vuong): ");
+                    // Console.Write("Loai hinh (1: Hinh chu nhat, 2: Hinh tron, 3: Hinh tam giac, 4: Hinh vuong): ");
                     int type = random.Next(1, 5);
 
-                    Console.Write("Ten hinh: ");
+                    // Console.Write("Ten hinh: ");
                     string name = "H" + i;
 
                     Shape shape = null;
@@ -117,6 +117,7 @@
                     switch (type)
                     {
                         case 1:
+                            Console.WriteLine("Loai: HCN");
                             Console.Write("Chieu rong: ");
                             double width = double.Parse(Console.ReadLine());
                             Console.Write("Chieu cao: ");
@@ -124,11 +125,13 @@
                             shape = new Rectangle(name, width, height);
                             break;
                         case 2:
+                            Console.WriteLine("Loai: Hinh Tron");
                             Console.Write("Ban kinh: ");
                             double radius = double.Parse(Console.ReadLine());
                             shape = new Circle(name, radius);
                             break;
                         case 3:
+                            Console.WriteLine("Loai: Tam giac");
                             Console.Write("Do dai day: ");
                             double baseLength = double.Parse(Console.ReadLine());
                             Console.Write("Chieu cao: ");
@@ -136,6 +139,7 @@
                             shape = new Triangle(name, baseLength, triHeight);
                             break;
                         case 4:
+                            Console.WriteLine("Loai: Hinh Vuong");
                             Console.Write("Kich thuoc canh cua hinh vuong ");
                             double sideLength = double.Parse(Console.ReadLine());
                             shape = new Square(name, sideLength);

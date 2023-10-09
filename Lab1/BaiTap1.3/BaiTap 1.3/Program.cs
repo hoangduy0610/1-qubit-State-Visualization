@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -14,9 +15,26 @@ class Program
         Console.WriteLine("So lon nhat trong day so thuc: " + FindMax(doubles));
         Console.WriteLine("So nho nhat trong day so thuc: " + FindMin(doubles));
 
-        string[] strings = { "apple", "banana", "cherry", "date" };
+        string[] strings = { "apple", "banana", "cherry", "date", "ate" };
         Console.WriteLine("Chuoi dai nhat trong day chuoi: " + FindMax(strings));
         Console.WriteLine("Chuoi ngan nhat trong day chuoi: " + FindMin(strings));
+    }
+    static string FindMax(IEnumerable<string> strings)
+    {
+        if (strings.Any())
+        {
+            return strings.OrderByDescending(s => s.Length).First();
+        }
+        throw new InvalidOperationException("Day rong");
+    }
+
+    static string FindMin(IEnumerable<string> strings)
+    {
+        if (strings.Any())
+        {
+            return strings.OrderBy(s => s.Length).First();
+        }
+        throw new InvalidOperationException("Day rong");
     }
 
     static T FindMax<T>(IEnumerable<T> collection) where T : IComparable<T>
