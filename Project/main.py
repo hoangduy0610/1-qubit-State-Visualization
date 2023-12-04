@@ -1,31 +1,48 @@
-from qiskit.visualization import plot_bloch_vector
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-import numpy as np
+import sys
+from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QLabel, QPushButton, QFileDialog
+from PyQt5.QtWidgets import QInputDialog
+from plotter import displayStates
+class BlochSphereApp(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Bloch Sphere App")
+        self.setGeometry(100, 100, 400, 300)
+        self.initUI()
 
-def plot_quantum_states(quantum_states):
-    fig = plt.figure()
-    ax = fig.add_subplot(111, projection='3d')
-    
-    for state in quantum_states:
-        if len(state) == 2:
-            state = np.append(state, 0)
-        plot_bloch_vector(state, ax=ax)
-    
-    ax.set_xlabel('X')
-    ax.set_ylabel('Y')
-    ax.set_zlabel('Z')
-    ax.set_title('Bloch Sphere')
+    def initUI(self):
+        self.centralWidget = QWidget(self)
+        self.setCentralWidget(self.centralWidget)
 
-    plt.show()
+        self.layout = QVBoxLayout()
+        self.centralWidget.setLayout(self.layout)
 
-def main():
-    quantum_states = [
-        np.array([1, 0]),
-        np.array([0, 1])
-    ]
+        self.label = QLabel("Select a text file or enter a list of 1-qubit quantum states:")
+        self.layout.addWidget(self.label)
 
-    plot_quantum_states(quantum_states)
+        self.fileButton = QPushButton("Choose File")
+        self.fileButton.clicked.connect(self.openFile)
+        self.layout.addWidget(self.fileButton)
 
-if __name__ == "__main__":
-    main()
+        self.stateButton = QPushButton("Enter States")
+        self.stateButton.clicked.connect(self.enterStates)
+        self.layout.addWidget(self.stateButton)
+
+    def openFile(self):
+        fileDialog = QFileDialog()
+        fileDialog.setFileMode(QFileDialog.ExistingFile)
+        fileName, _ = fileDialog.getOpenFileName(self, "Choose a text file")
+        if fileName:
+            with open(fileName, 'r') as file:
+                states = file.readlines()
+                displayStates(states)
+
+    def enterStates(self):
+        states, _ = QInputDialog.getText(self, "Enter States", "Enter a list of 1-qubit quantum states (comma-separated):")
+        if states:
+            displayStates(states.splitlines())
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    window = BlochSphereApp()
+    window.show()
+    sys.exit(app.exec_())
