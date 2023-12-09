@@ -32,3 +32,4 @@ def Visualization(initial_state, target_state):
     plt.show()
     # visualize_transition(qc, trace=True, saveas="rotation_gates.gif", fpg=30, spg=5)
     visualize_transition(qc, trace=True, fpg=30, spg=5)
+    
