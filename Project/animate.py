@@ -15,19 +15,20 @@ def calculate_rotation_angles(initial_state, target_state):
 
     return rx_angle, ry_angle, rz_angle
 
-initial_state = np.array([1, 0])
-target_state = np.array([0, 1])
-# Tính toán góc xoay
-rx_angle, ry_angle, rz_angle = calculate_rotation_angles(initial_state, target_state)
+def Visualization(initial_state, target_state):
+    # initial_state = np.array([1, 0])
+    # target_state = np.array([0, 1])
+    # Tính toán góc xoay
+    rx_angle, ry_angle, rz_angle = calculate_rotation_angles(initial_state, target_state)
 
-# Tạo mạch lượng tử và áp dụng cổng xoay
-qc = QuantumCircuit(1)
-qc.rx(rx_angle, 0)
-qc.ry(ry_angle, 0)
-qc.rz(rz_angle, 0)
+    # Tạo mạch lượng tử và áp dụng cổng xoay
+    qc = QuantumCircuit(1)
+    qc.rx(rx_angle, 0)
+    qc.ry(ry_angle, 0)
+    qc.rz(rz_angle, 0)
 
-# Hiển thị mạch lượng tử và quá trình chuyển động
-qc.draw('mpl')
-plt.show()
-# visualize_transition(qc, trace=True, saveas="rotation_gates.gif", fpg=30, spg=5)
-visualize_transition(qc, trace=True, fpg=30, spg=5)
+    # Hiển thị mạch lượng tử và quá trình chuyển động
+    qc.draw('mpl')
+    plt.show()
+    # visualize_transition(qc, trace=True, saveas="rotation_gates.gif", fpg=30, spg=5)
+    visualize_transition(qc, trace=True, fpg=30, spg=5)
