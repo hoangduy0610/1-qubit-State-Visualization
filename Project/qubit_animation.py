@@ -16,8 +16,8 @@ if __name__ == "__main__":
     iState = InitialState.split(' ')
     tState = TargetState.split(' ')
 
-    initial_state = np.array([float(string) for string in iState])
-    target_state = np.array([float(string) for string in tState])
+    initial_state = np.array([complex(string) for string in iState])
+    target_state = np.array([complex(string) for string in tState])
 
     
     theta, phi = calculate_phi_and_theta(initial_state[0], initial_state[1])
