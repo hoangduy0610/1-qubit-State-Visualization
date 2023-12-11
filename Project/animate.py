@@ -6,13 +6,16 @@ from config import ANIMATE_FILE_NAME, FPG_ANIMATE, SAVE_ANIMATE_TO_FILE, SPG_ANI
 
 def calculate_rotation_angles(initial_state, target_state):
     # Tính toán góc xoay cho cổng rx
-    rx_angle = np.arctan2(np.sqrt(initial_state[1]**2 + target_state[1]**2), target_state[0] - initial_state[0])
+    # rx_angle = np.arctan2(np.sqrt(initial_state[1]**2 + target_state[1]**2), target_state[0] - initial_state[0])
+    rx_angle = target_state[0] - initial_state[0]
 
     # Tính toán góc xoay cho cổng ry
-    ry_angle = np.arctan2(target_state[1], target_state[0])
+    # ry_angle = np.arctan2(target_state[1], target_state[0])
+    ry_angle = 0
 
     # Tính toán góc xoay cho cổng rz
-    rz_angle = np.angle(target_state[1] / np.sin(ry_angle)) if np.sin(ry_angle) != 0 else 0
+    # rz_angle = np.angle(target_state[1] / np.sin(ry_angle)) if np.sin(ry_angle) != 0 else 0
+    rz_angle = target_state[1] - initial_state[1]
 
     return rx_angle, ry_angle, rz_angle
 

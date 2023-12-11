@@ -2,9 +2,9 @@
 
 # MEG QUANTUM B
 
-<div style="width:100%; justify-content:center; display:flex;">
-    <img style="max-width: 30vw; height: auto;" src="https://i.postimg.cc/KjY6tNxx/MQB.png" />
-</div>
+<p align="center">
+  <img style="width: 300px; height: auto;" src="https://i.postimg.cc/KjY6tNxx/MQB.png" />
+</p>
 
 # Contributors
 
@@ -21,9 +21,8 @@
 
 [Youtube](https://youtu.be/c1uxKfOU-e4)
 
-<div style="width:100%; justify-content:center; display:flex;">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/c1uxKfOU-e4?si=wRpVb5ERjyd1Agx_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
+[![YOUTUBE INSTRUCTION](https://img.youtube.com/vi/c1uxKfOU-e4/0.jpg)](https://www.youtube.com/watch?v=c1uxKfOU-e4)
+
 <br>
 
 # Description
