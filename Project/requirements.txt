@@ -1,4 +1,7 @@
-pip install qiskit
-pip install matplotlib
-pip install qiskit-aer
-pip install pylatexenc
+PyQt5==5.15.9
+PyQt5-Qt5==5.15.2
+PyQt5-sip==12.12.2
+qiskit==0.45.1
+qiskit-aer==0.13.1
+pylatexenc==2.10
+matplotlib==3.7.2

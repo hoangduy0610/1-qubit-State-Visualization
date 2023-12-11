@@ -2,6 +2,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 from qiskit import QuantumCircuit
 from qiskit.visualization import visualize_transition
+from config import ANIMATE_FILE_NAME, FPG_ANIMATE, SAVE_ANIMATE_TO_FILE, SPG_ANIMATE
 
 def calculate_rotation_angles(initial_state, target_state):
     # Tính toán góc xoay cho cổng rx
@@ -15,9 +16,7 @@ def calculate_rotation_angles(initial_state, target_state):
 
     return rx_angle, ry_angle, rz_angle
 
-def Visualization(initial_state, target_state):
-    # initial_state = np.array([1, 0])
-    # target_state = np.array([0, 1])
+def visualization(initial_state, target_state):
     # Tính toán góc xoay
     rx_angle, ry_angle, rz_angle = calculate_rotation_angles(initial_state, target_state)
 
@@ -30,6 +29,8 @@ def Visualization(initial_state, target_state):
     # Hiển thị mạch lượng tử và quá trình chuyển động
     qc.draw('mpl')
     plt.show()
-    # visualize_transition(qc, trace=True, saveas="rotation_gates.gif", fpg=30, spg=5)
-    visualize_transition(qc, trace=True, fpg=30, spg=5)
-    
+
+    if SAVE_ANIMATE_TO_FILE:
+        visualize_transition(qc, trace=True, saveas=ANIMATE_FILE_NAME, fpg=FPG_ANIMATE, spg=SPG_ANIMATE)
+    else:
+        visualize_transition(qc, trace=True, fpg=FPG_ANIMATE, spg=SPG_ANIMATE)

@@ -1,14 +1,13 @@
+import subprocess
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QLabel, QPushButton, QFileDialog
-from PyQt5.QtWidgets import QInputDialog
-from plotter import displayStates
-from animate import Visualization
-import numpy as np
+from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QLabel, QPushButton, QFileDialog, QInputDialog
+from plotter import display_states
+from PyQt5.QtGui import QFont
 
 class BlochSphereApp(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Bloch Sphere App")
+        self.setWindowTitle("1-Qubit States Visualization")
         self.setGeometry(100, 100, 400, 300)
         self.initUI()
 
@@ -19,55 +18,50 @@ class BlochSphereApp(QMainWindow):
         self.layout = QVBoxLayout()
         self.centralWidget.setLayout(self.layout)
 
-        self.label = QLabel("Select a text file or enter a list of 1-qubit quantum states:")
+        self.label = QLabel("Select a feature from the list below")
         self.layout.addWidget(self.label)
 
         self.fileButton = QPushButton("Choose File")
-        self.fileButton.clicked.connect(self.openFile)
+        self.fileButton.clicked.connect(self.open_file)
         self.layout.addWidget(self.fileButton)
 
         self.stateButton = QPushButton("Enter States")
-        self.stateButton.clicked.connect(self.enterStates)
+        self.stateButton.clicked.connect(self.enter_states)
         self.layout.addWidget(self.stateButton)
         
         self.visualization = QPushButton("Visualization Transition")
-        self.visualization.clicked.connect(self.enterInitialAndTargetState)
+        self.visualization.clicked.connect(self.visualization_transition)
         self.layout.addWidget(self.visualization)
         
-    def enterInitialAndTargetState(self):
+
+    # ==================================================================================================
+    # ACTIONS    
+    def visualization_transition(self):
         InitialState, _ = QInputDialog.getText(self, "Visualization Transition", "Enter Initial State") 
         TargetState, _ = QInputDialog.getText(self, "Visualization Transition", "Enter Target State")
         
-        State = InitialState.split(' ')
-        initial_state = [float(string) for string in State]
-        initial_state = np.array(initial_state)
-
-        State = TargetState.split(' ')
-        target_state = [float(string) for string in State]
-        target_state = np.array(target_state)
+        command = f"python qubit_animation.py \"{InitialState}\" \"{TargetState}\""
+        subprocess.run(command, shell=True)
         
-        print(initial_state, target_state)
-        
-        Visualization(initial_state, target_state)
-        
-    def openFile(self):
+    def open_file(self):
         fileDialog = QFileDialog()
         fileDialog.setFileMode(QFileDialog.ExistingFile)
         fileName, _ = fileDialog.getOpenFileName(self, "Choose a text file")
         if fileName:
             with open(fileName, 'r') as file:
                 states = file.readlines()
-                displayStates(states)
+                display_states(states)
 
-    def enterStates(self):
-        states, _ = QInputDialog.getText(self, "Enter States", "Enter a list of 1-qubit quantum states (comma-separated):")
+    def enter_states(self):
+        states, _ = QInputDialog.getMultiLineText(self, "Enter States", "Enter a list of 1-qubit quantum states:")
         if states:
-            array = [state.strip() for state in states.split(',')]
-            displayStates(array)
+            array = [state.strip() for state in states.split('\n')]
+            display_states(array)
 
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
+    app.setStyleSheet("*{font-size: 20pt;}")
     window = BlochSphereApp()
     window.show()
     sys.exit(app.exec_())
