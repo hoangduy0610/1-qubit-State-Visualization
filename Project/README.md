@@ -48,11 +48,6 @@ python main.py
 
 # Additional information:
 
-## Editing arguments
-1. Change sphere alpha values: Editing `BLOCH_SPHERE_ALPHA` constant in the config.py file.
-2. Change animation speed: Editing `FPG_ANIMATE` (Frames per gate) and `SPG_ANIMATE` (Seconds per gate) constants in the config.py file.
-3. Store animation to file: set `SAVE_ANIMATE_TO_FILE` to `True` and `ANIMATE_FILE_NAME` to the filename of the animation you want to save.
-
 ## Key Features
 
 ### Intuitive Interface:
