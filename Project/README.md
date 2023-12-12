@@ -2,14 +2,14 @@
 
 # MEG QUANTUM B
 
-<div style="width:100%; justify-content:center; display:flex;">
-    <img style="max-width: 30vw; height: auto;" src="https://i.postimg.cc/KjY6tNxx/MQB.png" />
-</div>
+<p align="center">
+  <img style="width: 300px; height: auto;" src="https://i.postimg.cc/KjY6tNxx/MQB.png" />
+</p>
 
 # Contributors
 
 - Leader: Nguyen Hoang Duy - 22520328 - [Github](https://github.com/hoangduy0610)
-- Architect Consultant: Nguyen Ngoc Minh Quoc - 22521214
+- Architect Consultant: Nguyen Ngoc Minh Quoc - 22521214 - [Github](https://github.com/gundamdouble00)
 - Member: Tran Duc Chinh - 22520158
 - Member: Hoang Ho Quoc Bao - 22520102
 
@@ -19,11 +19,10 @@
 
 # Video demo
 
-[Youtube](https://youtu.be/c1uxKfOU-e4)
+[Youtube](https://youtu.be/3-Zwc2g-PBU)
 
-<div style="width:100%; justify-content:center; display:flex;">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/c1uxKfOU-e4?si=wRpVb5ERjyd1Agx_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
+[![YOUTUBE INSTRUCTION](https://img.youtube.com/vi/3-Zwc2g-PBU/0.jpg)](https://youtu.be/3-Zwc2g-PBU)
+
 <br>
 
 # Description
@@ -47,6 +46,11 @@ python main.py
 ```
 
 # Additional information:
+
+## Editing arguments
+1. Change sphere alpha values: Editing `BLOCH_SPHERE_ALPHA` constant in the config.py file.
+2. Change animation speed: Editing `FPG_ANIMATE` (Frames per gate) and `SPG_ANIMATE` (Seconds per gate) constants in the config.py file.
+3. Store animation to file: set `SAVE_ANIMATE_TO_FILE` to `True` and `ANIMATE_FILE_NAME` to the filename of the animation you want to save.
 
 ## Key Features
 
