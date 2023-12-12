@@ -9,7 +9,7 @@
 # Contributors
 
 - Leader: Nguyen Hoang Duy - 22520328 - [Github](https://github.com/hoangduy0610)
-- Architect Consultant: Nguyen Ngoc Minh Quoc - 22521214
+- Architect Consultant: Nguyen Ngoc Minh Quoc - 22521214 - [Github](https://github.com/gundamdouble00)
 - Member: Tran Duc Chinh - 22520158
 - Member: Hoang Ho Quoc Bao - 22520102
 
@@ -19,9 +19,9 @@
 
 # Video demo
 
-[Youtube](https://youtu.be/c1uxKfOU-e4)
+[Youtube](https://youtu.be/3-Zwc2g-PBU)
 
-[![YOUTUBE INSTRUCTION](https://img.youtube.com/vi/c1uxKfOU-e4/0.jpg)](https://www.youtube.com/watch?v=c1uxKfOU-e4)
+[![YOUTUBE INSTRUCTION](https://img.youtube.com/vi/3-Zwc2g-PBU/0.jpg)](https://youtu.be/3-Zwc2g-PBU)
 
 <br>
 
