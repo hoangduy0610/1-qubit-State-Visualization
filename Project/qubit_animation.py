@@ -19,11 +19,4 @@ if __name__ == "__main__":
     initial_state = np.array([complex(string) for string in iState])
     target_state = np.array([complex(string) for string in tState])
 
-    
-    theta, phi = calculate_phi_and_theta(initial_state[0], initial_state[1])
-    initial_state = np.array([theta, phi])
-
-    theta, phi = calculate_phi_and_theta(target_state[0], target_state[1])
-    target_state = np.array([theta, phi])
-
     visualization(initial_state, target_state)

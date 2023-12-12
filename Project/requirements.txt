@@ -5,3 +5,4 @@ qiskit==0.45.1
 qiskit-aer==0.13.1
 pylatexenc==2.10
 matplotlib==3.7.2
+ipython==8.18.1
